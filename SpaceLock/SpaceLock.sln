@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Entidades", "0 - Entidades", "{C155FC06-B45B-4C84-93FA-9B2D8EB8A60F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Sistema", "1 - Sistema", "{1841A560-D777-4F92-9B5C-D4054D53573C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1 - Apresentação", "1.1 - Apresentação", "{8749BF64-5F6F-4258-ABB2-62B1E4F34D89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.2 - Repositorio", "1.2 - Repositorio", "{E916C0F7-513D-4715-8E20-91D47BBDFF21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceLock.Entidades", "SpaceLock.Entidades\SpaceLock.Entidades.csproj", "{E21CFF05-218E-4330-B657-C5C7A05754B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceLock.Repositorio", "SpaceLock.Repositorio\SpaceLock.Repositorio.csproj", "{F5C8AB5E-3E7C-4FAB-AE20-EB1732486834}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceLock.WEB", "SpaceLock.WEB\SpaceLock.WEB.csproj", "{BED6A6E0-225F-4A56-A710-AA4EB7BFD756}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E21CFF05-218E-4330-B657-C5C7A05754B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E21CFF05-218E-4330-B657-C5C7A05754B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E21CFF05-218E-4330-B657-C5C7A05754B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E21CFF05-218E-4330-B657-C5C7A05754B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5C8AB5E-3E7C-4FAB-AE20-EB1732486834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5C8AB5E-3E7C-4FAB-AE20-EB1732486834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5C8AB5E-3E7C-4FAB-AE20-EB1732486834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5C8AB5E-3E7C-4FAB-AE20-EB1732486834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BED6A6E0-225F-4A56-A710-AA4EB7BFD756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BED6A6E0-225F-4A56-A710-AA4EB7BFD756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BED6A6E0-225F-4A56-A710-AA4EB7BFD756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BED6A6E0-225F-4A56-A710-AA4EB7BFD756}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8749BF64-5F6F-4258-ABB2-62B1E4F34D89} = {1841A560-D777-4F92-9B5C-D4054D53573C}
+		{E916C0F7-513D-4715-8E20-91D47BBDFF21} = {1841A560-D777-4F92-9B5C-D4054D53573C}
+		{E21CFF05-218E-4330-B657-C5C7A05754B6} = {C155FC06-B45B-4C84-93FA-9B2D8EB8A60F}
+		{F5C8AB5E-3E7C-4FAB-AE20-EB1732486834} = {E916C0F7-513D-4715-8E20-91D47BBDFF21}
+		{BED6A6E0-225F-4A56-A710-AA4EB7BFD756} = {8749BF64-5F6F-4258-ABB2-62B1E4F34D89}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17214D2E-6E6A-4CDD-B0AD-901724FF8EF7}
+	EndGlobalSection
+EndGlobal

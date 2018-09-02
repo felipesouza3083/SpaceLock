@@ -1,0 +1,14 @@
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Repositorio.dll.config
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Repositorio.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Repositorio.pdb
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\EntityFramework.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Entidades.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Entidades.pdb
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\EntityFramework.xml
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.csprojAssemblyReference.cache
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.csproj.CoreCompileInputs.cache
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.csproj.CopyComplete
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.pdb
