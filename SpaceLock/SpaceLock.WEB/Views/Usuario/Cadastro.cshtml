@@ -1,0 +1,97 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model SpaceLock.WEB.Models.Usuario.UsuarioCadastroViewModel
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="login">
+        <h1><a href="/Usuario/Login">Space Lock Admin </a></h1>
+        <div class="login-bottom">
+            <h2>Cadastro</h2>
+            @using ((Html.BeginForm("Cadastro", "Usuario", FormMethod.Post,
+                        new { @enctype = "multipart/form-data" })))
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-6">
+                    <div class="login-mail">
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { placeholder = "Nome" } })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="login-mail">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="login-mail">
+                        @Html.EditorFor(model => model.Login, new { htmlAttributes = new { placeholder = "Login" } })
+                        @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="login-mail">
+                        @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { placeholder = "Senha" } })
+                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="login-mail">
+                        @Html.EditorFor(model => model.ConfirmSenha, new { htmlAttributes = new { placeholder = "Confirme à Senha" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmSenha)
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="login-mail">
+                        <div class="col-md-4">
+                            <input type="file" name="Foto" />
+                            @Html.ValidationMessageFor(model => model.Foto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 login-do">
+                    <label class="hvr-shutter-in-horizontal login-sub">
+                        <input type="submit" value="Registrar">
+                    </label>
+                    <p>Já cadastrado</p>
+                    <a href="/Usuario/Login" class="hvr-shutter-in-horizontal">Login</a>
+
+                    @ViewBag.Mensagem
+                </div>
+            }
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!---->
+    <div class="copy-right">
+        <p> &copy; 2016 Minimal. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+    </div>
+
+    <!---->
+    <!--scrolling js-->
+    <script src="~/js/jquery.nicescroll.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <!--//scrolling js-->
+</body>
+</html>
+

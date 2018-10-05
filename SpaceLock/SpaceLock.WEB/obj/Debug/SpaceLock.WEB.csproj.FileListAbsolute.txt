@@ -82,3 +82,11 @@ C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\obj\Debug\SpaceLock.WEB.csproj
 C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\obj\Debug\SpaceLock.WEB.csproj.CopyComplete
 C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\obj\Debug\SpaceLock.WEB.dll
 C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\obj\Debug\SpaceLock.WEB.pdb
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\SimpleInjector.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\SimpleInjector.Integration.Web.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\SimpleInjector.Integration.Web.Mvc.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\SimpleInjector.xml
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\SimpleInjector.Integration.Web.xml
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\SimpleInjector.Integration.Web.Mvc.xml
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\Newtonsoft.Json.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\Newtonsoft.Json.xml
