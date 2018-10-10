@@ -10,6 +10,7 @@ namespace SpaceLock.WEB.Models.Usuario
         public int IdUsuario { get; set; }
         public string Nome { get; set; }
         public string Login { get; set; }
+        public string Foto { get; set; }
         public DateTime DataHoraAcesso { get; set; }
     }
 }

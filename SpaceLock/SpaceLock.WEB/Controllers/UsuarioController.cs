@@ -44,6 +44,7 @@ namespace SpaceLock.WEB.Controllers
                         auth.IdUsuario = u.IdUsuario;
                         auth.Nome = u.Nome;
                         auth.Login = u.Login;
+                        auth.Foto = u.Foto;
                         auth.DataHoraAcesso = DateTime.Now;
 
                         //converter o objeto para JSON..

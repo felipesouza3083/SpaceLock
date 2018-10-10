@@ -131,6 +131,7 @@
     <Content Include="Views\web.config" />
     <Content Include="Areas\AreaRestrita\Views\web.config" />
     <Content Include="Areas\AreaRestrita\Views\Shared\Layout.cshtml" />
+    <Content Include="Areas\AreaRestrita\Views\Home\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\Cadastro.cshtml" />
@@ -143,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\AreaRestrita\Models\" />
-    <Folder Include="Areas\AreaRestrita\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpaceLock.Entidades\SpaceLock.Entidades.csproj">
