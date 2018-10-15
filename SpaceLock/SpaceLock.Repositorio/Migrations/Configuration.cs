@@ -23,7 +23,14 @@ namespace SpaceLock.Repositorio.Migrations
                 new Perfil { IdPerfil = 2, Nome = "Comum" }
                 );
 
-            context.Usuario.AddOrUpdate(
+            context.TipoEvento.AddOrUpdate(
+                new TipoEvento { IdTipoEvento = 1, Descricao = "Festa de aniversário" },
+                new TipoEvento { IdTipoEvento = 2, Descricao = "Festa de 15 anos" },
+                new TipoEvento { IdTipoEvento = 3, Descricao = "Festa de casamento" }
+                );
+
+            /*Acertar o codigo abaixo com erro.
+             * context.Usuario.AddOrUpdate(
                 new Usuario
                 {
                     IdUsuario = 1,
@@ -33,7 +40,7 @@ namespace SpaceLock.Repositorio.Migrations
                     Senha = Criptografia.EncriptarSenhaMD5("cd3083"),
                     Foto = "anonimous.jpg",
                     Perfil = context.Perfil.Find(1)
-                });
+                });*/
         }
     }
 }

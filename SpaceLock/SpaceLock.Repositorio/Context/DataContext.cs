@@ -26,9 +26,19 @@ namespace SpaceLock.Repositorio.Context
 
             modelBuilder.Configurations.Add(new PerfilMap());
             modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new EspacoMap());
+            modelBuilder.Configurations.Add(new TipoEventoMap());
+            modelBuilder.Configurations.Add(new EspacoFotoMap());
+            modelBuilder.Configurations.Add(new ManutencaoMap());
+            modelBuilder.Configurations.Add(new AluguelMap());
         }
 
         public DbSet<Perfil> Perfil { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Espaco> Espaco { get; set; }
+        public DbSet<TipoEvento> TipoEvento { get; set; }
+        public DbSet<Aluguel> Aluguel { get; set; }
+        public DbSet<Manutencao> Manutencao { get; set; }
+        public DbSet<EspacoFoto> EspacoFoto { get; set; }
     }
 }

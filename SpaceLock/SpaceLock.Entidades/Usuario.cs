@@ -17,6 +17,9 @@ namespace SpaceLock.Entidades
         public int IdPerfil { get; set; }
 
         public Perfil Perfil { get; set; }
+        public List<Espaco> Espacos { get; set; }
+        public List<Manutencao> Manutencoes { get; set; }
+        public List<Aluguel> Alugueis { get; set; }
 
         public Usuario()
         {
