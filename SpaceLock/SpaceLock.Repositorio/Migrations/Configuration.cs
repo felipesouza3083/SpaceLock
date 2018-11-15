@@ -29,18 +29,18 @@ namespace SpaceLock.Repositorio.Migrations
                 new TipoEvento { IdTipoEvento = 3, Descricao = "Festa de casamento" }
                 );
 
-            /*Acertar o codigo abaixo com erro.
-             * context.Usuario.AddOrUpdate(
-                new Usuario
-                {
-                    IdUsuario = 1,
-                    Nome = "Felipe Araujo de Souza",
-                    Email = "felipearaujosouza@hotmail.com",
-                    Login = "felipe.souza",
-                    Senha = Criptografia.EncriptarSenhaMD5("cd3083"),
-                    Foto = "anonimous.jpg",
-                    Perfil = context.Perfil.Find(1)
-                });*/
+
+            context.Usuario.AddOrUpdate(
+              new Usuario
+              {
+                  IdUsuario = 1,
+                  Nome = "Felipe Araujo de Souza",
+                  Email = "felipearaujosouza@hotmail.com",
+                  Login = "felipe.souza",
+                  Senha = Criptografia.EncriptarSenhaMD5("cd3083"),
+                  Foto = "anonimous.jpg",
+                  IdPerfil = 1
+              });
         }
     }
 }

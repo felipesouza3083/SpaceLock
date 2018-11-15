@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Areas/AreaRestrita/Views/Shared/Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            alert("twatw");
+            //Quando o campo cep perde o foco.
+            $("#txtCep").blur(function () {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep !== "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#txtEndereco").val("...");
+                        $("#txtBairro").val("...");
+                        $("#txtCidade").val("...");
+                        $("#txtUf").val("...");
+                        //$("#ibge").val("...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#txtEndereco").val(dados.logradouro);
+                                $("#txtBairro").val(dados.bairro);
+                                $("#txtCidade").val(dados.localidade);
+                                $("#txtUf").val(dados.uf);
+                                //$("#ibge").val(dados.ibge);
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+
+
+        });
+    </script>
+}
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+
+        <!--banner-->
+        <div class="banner">
+            <h2>
+                <a href="/AreaRestrita/Home">Home</a>
+                <i class="fa fa-angle-right"></i>
+                <span>Novo Espaço</span>
+            </h2>
+        </div>
+        <!--//banner-->
+        <!--grid-->
+        <div class="grid-form">
+            <!---->
+            <div class="grid-form1">
+                <h3>Cadastrar Novo Espaço</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="focusedinput" class="col-sm-2 control-label">Nome do Espaço</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtNome" placeholder="Nome do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Capacidade</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control1" id="txtCapacidade" placeholder="Capacidade do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Tamanho</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtTamanho" placeholder="Tamanho do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Unidade de Medida</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtUnidadeMedida" placeholder="Unidade de Medida do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">CEP</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtCep" placeholder="CEP">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Endereço</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtEndereco" placeholder="Endereço do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Número</label>
+                                <div class="col-sm-2">
+                                    <input type="number" class="form-control1" id="txtNumero" value="1" min="1">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Complemento</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtComplemento" placeholder="Complemento do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Bairro</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtBairro" placeholder="Bairro do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Cidade</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtCidade" placeholder="Cidade do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Uf</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtUf" placeholder="Uf do Espaço">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Tipo de Eventos</label>
+                                <div class="col-sm-8">
+                                    <select multiple="" class="form-control1">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                        <option>Option 5</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Valor do Aluguel</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtValor" placeholder="R$">
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <input type="button" class="btn-primary btn" id="btncadastrar" onclick="CadastrarEspaco()" value="Cadastrar">
+                                    </div>
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <div id="mensagem"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//grid-->
+        <!---->
+    </div>
+</div>
+<div class="clearfix"> </div>
+<!--scrolling js-->
+<script src="~/js/jquery.nicescroll.js"></script>
+<script src="~/js/scripts.js"></script>
+<script src="~/Page_Js/espaco_cadastro.js"></script>
+<!--//scrolling js-->
+<!---->

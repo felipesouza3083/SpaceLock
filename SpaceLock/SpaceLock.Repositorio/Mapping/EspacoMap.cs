@@ -38,6 +38,40 @@ namespace SpaceLock.Repositorio.Mapping
                 .HasMaxLength(15)
                 .IsRequired();
 
+            Property(e => e.Endereco)
+                .HasColumnName("Endereco")
+                .HasMaxLength(150)
+                .IsRequired();
+
+            Property(e => e.Numero)
+                .HasColumnName("Numero")
+                .IsRequired();
+
+            Property(e => e.Complemento)
+                .HasColumnName("Complemento")
+                .HasMaxLength(30)
+                .IsRequired();
+
+            Property(e => e.Bairro)
+                .HasColumnName("Bairro")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            Property(e => e.Cidade)
+                .HasColumnName("Cidade")
+                .HasMaxLength(15)
+                .IsRequired();
+
+            Property(e => e.Uf)
+                .HasColumnName("Uf")
+                .HasMaxLength(2)
+                .IsRequired();
+
+            Property(e => e.Cep)
+                .HasColumnName("Cep")
+                .HasMaxLength(9)
+                .IsRequired();
+
             Property(e => e.DataCadastro)
                 .HasColumnName("DataCadastro")
                 .IsRequired();

@@ -1,4 +1,5 @@
 ﻿using SpaceLock.Entidades;
+using SpaceLock.Repositorio.Context;
 using SpaceLock.Repositorio.Contracts;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,12 @@ namespace SpaceLock.Repositorio.Repositories
     {
         public List<Espaco> ListarPorUsuario(int idUsuario)
         {
-            throw new NotImplementedException();
+            using(DataContext d = new DataContext())
+            {
+                return d.Espaco
+                        .Where(e => e.IdUsuario == idUsuario)
+                        .ToList();
+            }
         }
 
         public List<Espaco> ListarPorTipoEvento(int idTipoEvento)

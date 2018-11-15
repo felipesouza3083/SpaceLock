@@ -27,6 +27,11 @@ namespace SpaceLock.WEB
             // Register your types, for instance:
             container.Register<IUsuarioRepository, UsuarioRepository>(Lifestyle.Scoped);
             container.Register<IPerfilRepository, PerfilRepository>(Lifestyle.Scoped);
+            container.Register<IEspacoRepository, EspacoRepository>(Lifestyle.Scoped);
+            container.Register<IEspacoFotoRepository, EspacoFotoRepository>(Lifestyle.Scoped);
+            container.Register<ITipoEventoRepository, TipoEventoRepository>(Lifestyle.Scoped);
+            container.Register<IAluguelRepository, AluguelRepository>(Lifestyle.Scoped);
+            container.Register<IManutencaoRepository, ManutencaoRepository>(Lifestyle.Scoped);
 
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());

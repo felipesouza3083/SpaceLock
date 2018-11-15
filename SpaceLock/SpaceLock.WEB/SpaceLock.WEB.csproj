@@ -111,12 +111,18 @@
       <DependentUpon>Banco.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Page_Js\espaco_cadastro.js" />
+    <Content Include="Page_Js\espaco_consulta.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AreaRestrita\AreaRestritaAreaRegistration.cs" />
+    <Compile Include="Areas\AreaRestrita\Controllers\EspacoController.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\HomeController.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoAtualizacaoViewModel.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoCadastroViewModel.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoConsultaViewModel.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -132,6 +138,8 @@
     <Content Include="Areas\AreaRestrita\Views\web.config" />
     <Content Include="Areas\AreaRestrita\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\AreaRestrita\Views\Home\Index.cshtml" />
+    <Content Include="Areas\AreaRestrita\Views\Espaco\Cadastro.cshtml" />
+    <Content Include="Areas\AreaRestrita\Views\Espaco\Consulta.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\Cadastro.cshtml" />
@@ -142,9 +150,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\AreaRestrita\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SpaceLock.Entidades\SpaceLock.Entidades.csproj">
       <Project>{e21cff05-218e-4330-b657-c5c7a05754b6}</Project>
