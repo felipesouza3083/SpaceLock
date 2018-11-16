@@ -36,6 +36,7 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             return View();
         }
 
+        [HttpPost]
         public JsonResult CadastrarEspaco(EspacoCadastroViewModel model)
         {
             if (ModelState.IsValid)
@@ -84,6 +85,7 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             }
         }
 
+        [HttpPut]
         public JsonResult AtualizarEspaco(EspacoAtualizacaoViewModel model)
         {
             if (ModelState.IsValid)
@@ -133,6 +135,7 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             }
         }
 
+        [HttpGet]
         public JsonResult ConsultarEspaco(int idUsuario)
         {
             try

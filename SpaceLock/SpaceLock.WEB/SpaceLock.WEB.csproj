@@ -120,9 +120,12 @@
     <Compile Include="Areas\AreaRestrita\AreaRestritaAreaRegistration.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\EspacoController.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\HomeController.cs" />
+    <Compile Include="Areas\AreaRestrita\Controllers\TipoEventoController.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoAtualizacaoViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoCadastroViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoConsultaViewModel.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\Tipo Evento\TipoEventoCadastroViewModel.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\Tipo Evento\TipoEventoConsultaViewModel.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -140,6 +143,7 @@
     <Content Include="Areas\AreaRestrita\Views\Home\Index.cshtml" />
     <Content Include="Areas\AreaRestrita\Views\Espaco\Cadastro.cshtml" />
     <Content Include="Areas\AreaRestrita\Views\Espaco\Consulta.cshtml" />
+    <Content Include="Areas\AreaRestrita\Views\TipoEvento\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\Cadastro.cshtml" />

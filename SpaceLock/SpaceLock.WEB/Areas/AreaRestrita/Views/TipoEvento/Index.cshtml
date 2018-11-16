@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AreaRestrita/Views/Shared/Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function consultar(){
+                $.ajax({
+                    url: '/TipoEvento/ConsultarTipoEvento',
+                    dataType: "json",
+                    type: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (obj) {
+                        //verificar se o controller retornou uma lista..
+                        if (obj instanceof Array) {
+                            //exibir a quantidade de elementos da lista..
+                            $("#quantidade").html(obj.length);
+                            //imprimir os dados da tabela..
+                            var conteudo = "";
+                            for (var i = 0; i < obj.length; i++) {
+                                conteudo += "<tr>";
+                                conteudo += "<td>" + obj[i].IdTipoEvento + "</td>";
+                                conteudo += "<td>" + obj[i].Descricao + "</td>";
+                                conteudo += "</tr>";
+                            }
+                            $("#tabela tbody").html(conteudo);
+                        }
+                        else {
+                            //imprimir mensagem..
+                            $("#mensagem").html(obj);
+                        }
+                    },
+                    error: function (e) {
+                        $("#mensagem").html("Erro: " + e.status);
+                    }
+                });
+            };
+            //executando a função de consulta..
+            consultar();
+
+            //criando um evento no botão de cadastro..
+            $("#btncadastro").click(function () {
+
+                //escrevendo conteudo no elemento HTML..
+                $("#mensagem").html("Processando, por favor aguarde.");
+
+                //armazenar o conteudo dos campos do formulário
+                //em um formato JSON para enviarmos ao servidor..
+                var model = {
+                    Descricao: $("#txtDescricao").val()
+                };
+
+                //imprimindo..
+                //$("#mensagem").html(JSON.stringify(model));
+
+                //função AJAX..
+                $.ajax({
+                    type: "POST",
+                    url: "/TipoEvento/CadastrarTipoEvento",
+                    data: model,
+                    success: function (msg) { //requisição bem-sucedida..
+
+                        //imprimir a mensagem obtida..
+                        $("#mensagem").html(msg);
+
+                        //limpar os campos..
+                        $("#txtDescricao").val("");
+                        consultar();
+                    },
+                    error: function (e) { //requisição falhou..
+                        $("#mensagem").html("Ocorreu um erro: " + e.status);
+                    }
+                });
+            });
+        });
+    </script>
+    }
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+
+        <!--banner-->
+        <div class="banner">
+            <h2>
+                <a href="/AreaRestrita/Home">Home</a>
+                <i class="fa fa-angle-right"></i>
+                <span>Novo Evento</span>
+            </h2>
+        </div>
+        <!--//banner-->
+        <!--grid-->
+        <div class="grid-form">
+            <!---->
+            <div class="grid-form1">
+                <h3>Cadastrar Novo Tipo Evento</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="focusedinput" class="col-sm-2 control-label">Descrição do Evento</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" id="txtDescricao" placeholder="Descrição do Evento">
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <button id="btncadastro" class="btn btn-success">
+                                            Cadastrar
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <div id="mensagem"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <div id="mensagem"></div>
+                            <table id="tabela" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2">
+                                            Quantidade de Eventos: <span style="color:black" id="quantidade"></span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!--//grid-->
+        <!---->
+    </div>
+</div>
+<div class="clearfix"> </div>
+

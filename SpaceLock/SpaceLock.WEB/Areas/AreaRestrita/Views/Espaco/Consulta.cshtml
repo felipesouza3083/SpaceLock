@@ -6,8 +6,6 @@
 
 @section scripts{
     <!--scrolling js-->
-    <script src="~/js/jquery.nicescroll.js"></script>
-    <script src="~/js/scripts.js"></script>
     <script src="~/Page_Js/espaco_consulta.js"></script>
 }
 
@@ -30,6 +28,7 @@
                 <h3>Meus Espaços</h3>
                 <div class="tab-content">
                     <div class="tab-pane active" id="horizontal-form">
+                        <div id="mensagem"></div>
                         <table id="tabela" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -46,7 +45,7 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="5">
-                                        Quantidade de Clientes: <span id="quantidade"></span>
+                                        Quantidade de Espaços: <span style="color:black" id="quantidade"></span>
                                     </td>
                                 </tr>
                             </tfoot>

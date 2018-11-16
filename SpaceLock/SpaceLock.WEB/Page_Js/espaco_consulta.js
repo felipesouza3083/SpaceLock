@@ -9,9 +9,13 @@ function consultar() {
     debugger;
     //função AJAX..
     $.ajax({
-        type: "GET", //requisição HTTP GET..
-        url: "/Espaco/ConsultarClientes?idUsuario=1",
-        data: {},
+        url: '/Espaco/ConsultarEspaco?idUsuario=1',
+        dataType: "json",
+        type: "GET",
+        contentType: 'application/json; charset=utf-8',
+        async: true,
+        processData: false,
+        cache: false,
         success: function (obj) {
             //verificar se o controller retornou uma lista..
             if (obj instanceof Array) {
@@ -25,7 +29,7 @@ function consultar() {
                     conteudo += "<td>" + obj[i].NomeEspaco + "</td>";
                     conteudo += "<td>" + obj[i].Capacidade + "</td>";
                     conteudo += "<td>" + obj[i].Tamanho + "</td>";
-                    conteudo += "<td><input type='button' class='btn btn-default btn-sm' value='Atualizar'/></td>";
+                    conteudo += "<td><input type='button' class='btn btn-default btn-sm' value='Atualizar Dados'/></td>";
                     conteudo += "</tr>";
                 }
                 $("#tabela tbody").html(conteudo);
