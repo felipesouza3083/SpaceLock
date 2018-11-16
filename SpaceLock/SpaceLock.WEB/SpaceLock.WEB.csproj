@@ -119,8 +119,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AreaRestrita\AreaRestritaAreaRegistration.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\EspacoController.cs" />
+    <Compile Include="Areas\AreaRestrita\Controllers\EspacoFotoController.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\HomeController.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\TipoEventoController.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\EspacoFoto\EspacoFotoCadastroViewModel.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\EspacoFoto\EspacoFotoConsultaViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoAtualizacaoViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoCadastroViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoConsultaViewModel.cs" />
@@ -144,9 +147,11 @@
     <Content Include="Areas\AreaRestrita\Views\Espaco\Cadastro.cshtml" />
     <Content Include="Areas\AreaRestrita\Views\Espaco\Consulta.cshtml" />
     <Content Include="Areas\AreaRestrita\Views\TipoEvento\Index.cshtml" />
+    <Content Include="Areas\AreaRestrita\Views\EspacoFoto\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\Cadastro.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,7 +185,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51198</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51198/</IISUrl>
+          <IISUrl>http://localhost:51199/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

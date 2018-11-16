@@ -12,3 +12,17 @@ C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Re
 C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.csproj.CopyComplete
 C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.dll
 C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.pdb
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Repositorio.dll.config
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Repositorio.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Repositorio.pdb
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\EntityFramework.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Entidades.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\SpaceLock.Entidades.pdb
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\EntityFramework.xml
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.csprojAssemblyReference.cache
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.csproj.CoreCompileInputs.cache
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.csproj.CopyComplete
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Debug\SpaceLock.Repositorio.pdb

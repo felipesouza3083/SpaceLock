@@ -1,0 +1,70 @@
+﻿@model SpaceLock.WEB.Models.Usuario.UsuarioLoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="~/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="login">
+        <h1><a href="/Usuario/Login">Space Lock Admin </a></h1>
+        <div class="login-bottom">
+            <h2>Login</h2>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-6">
+                    <div class="login-mail">
+                        @Html.EditorFor(model => model.Login, new { htmlAttributes = new { placeholder = "Login" } })
+                        @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                        @*<input type="text" placeholder="Email" required="">*@
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="login-mail">
+                        @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { placeholder = "Senha" } })
+                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                        @*<input type="password" placeholder="Password" required="">*@
+                        <i class="fa fa-lock"></i>
+                    </div>
+                </div>
+                <div class="col-md-6 login-do">
+                    <label class="hvr-shutter-in-horizontal login-sub">
+                        <input type="submit" value="login">
+                    </label>
+                    <p>Ainda não tem conta?</p>
+                    <a href="/Usuario/Cadastro" class="hvr-shutter-in-horizontal">Cadastre-se</a>
+                </div>
+                <div>
+                    @ViewBag.Mensagem
+                </div>
+                <div class="clearfix"> </div>
+            }
+        </div>
+    </div>
+    <!---->
+    @*<div class="copy-right">
+        <p> &copy; 2016 Minimal. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+    </div>*@
+    <!---->
+    <!--scrolling js-->
+    <script src="~/js/jquery.nicescroll.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <!--//scrolling js-->
+</body>
+</html>
+
+

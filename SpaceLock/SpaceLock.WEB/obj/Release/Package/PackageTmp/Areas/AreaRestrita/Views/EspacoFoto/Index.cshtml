@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AreaRestrita/Views/Shared/Layout.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function consultar() {
+                debugger;
+                //função AJAX..
+                $.ajax({
+                    url: '/Espaco/ConsultarEspaco?idUsuario=' + sessionStorage.getItem("IDUSUARIOLOGADO") + '',
+                    dataType: "json",
+                    type: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (obj) {
+                        //verificar se o controller retornou uma lista..
+                        if (obj instanceof Array) {
+                            //imprimir os dados da tabela..
+                            var conteudo = "";
+                            conteudo += "<option value='0'>::SELECIONE::</option>"
+                            for (var i = 0; i < obj.length; i++) {
+                                conteudo+= "<option value='"+obj[i].IdEspaco+"'>"+obj[i].NomeEspaco+"</option>";
+                            }
+                            $("#sltEspaco").html(conteudo);
+                        }
+                        else {
+                            //imprimir mensagem..
+                            $("#mensagem").html(obj);
+                        }
+                    },
+                    error: function (e) {
+                        $("#mensagem").html("Erro: " + e.status);
+                    }
+                });
+            };
+
+            function SalvarImagem() {
+                debugger;
+                $("#mensagem").html("Processando seu cadastro.");
+                debugger;
+                var fileUpload = $("#foto").get(0);
+                var files = fileUpload.files;
+
+                //Pegando a extensao da imagem...
+                var extensao = files[0].name.substring(files[0].name.length - 3, files[0].name.length);
+
+                //Gerando um novo nome para a imagem...
+                var filename = guid();
+                filename += '.' + extensao;
+
+                //atribuindo a imagem no formData...
+                var data = new FormData();
+                data.append('file', files[0], filename);
+
+                var idEspaco = $("#sltEspaco").val();
+
+                var model = {
+                    Foto: filename,
+                    IdEspaco: idEspaco
+                };
+
+                //Chamando a requisição ajax para salvar a imagem...
+                $.ajax({
+                    url: "/EspacoFoto/UploadFoto?idEspaco="+idEspaco+"",
+                    type: "POST",
+                    data: data,
+                    contentType: false,
+                    processData: false,
+                    success: function () { },
+                    error: function () { }
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "/EspacoFoto/SalvarFoto",
+                    data: model,
+                    success: function (msg) { //requisição bem-sucedida..
+                        $("#mensagem").html(msg);
+                    },
+                    error: function (e) { //requisição falhou..
+                        $("#mensagem").html("Ocorreu um erro: " + e.status);
+                    }
+                });
+
+
+            };
+
+            function guid() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            };
+
+            //executando a função de consulta..
+            consultar();
+
+            $("#btncadastro").click(function () {
+                SalvarImagem();
+            });
+
+            $('#sltEspaco').change(function () {
+                alert($(this).val());
+            });
+
+        });
+    </script>
+}
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+
+        <!--banner-->
+        <div class="banner">
+            <h2>
+                <a href="/AreaRestrita/Home">Home</a>
+                <i class="fa fa-angle-right"></i>
+                <span>Nova Foto</span>
+            </h2>
+        </div>
+        <!--//banner-->
+        <!--grid-->
+        <div class="grid-form">
+            <!---->
+            <div class="grid-form1">
+                <h3>Importar Nova Foto</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="selector1" class="col-sm-2 control-label">Espaço</label>
+                                <div class="col-sm-8">
+                                    <select name="selector1" id="sltEspaco" class="form-control1"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <center>
+                                    <label for="exampleInputFile">Escolha a Imagem</label>
+                                    <input type="file" id="foto" accept="image/*">
+                                </center>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <button id="btncadastro" class="btn btn-success">
+                                            Cadastrar
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <div id="mensagem"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <div id="mensagem"></div>
+                            <table id="tabela" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Descrição</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2">
+                                            Quantidade de Eventos: <span style="color:black" id="quantidade"></span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//grid-->
+    <!---->
+</div>
+

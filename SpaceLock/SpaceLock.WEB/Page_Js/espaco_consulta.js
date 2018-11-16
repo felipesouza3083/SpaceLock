@@ -6,10 +6,9 @@ $(document).ready(function () {
 
 //função para executar a consulta de clientes..
 function consultar() {
-    debugger;
     //função AJAX..
     $.ajax({
-        url: '/Espaco/ConsultarEspaco?idUsuario=1',
+        url: '/Espaco/ConsultarEspaco?idUsuario=' + sessionStorage.getItem("IDUSUARIOLOGADO") + '',
         dataType: "json",
         type: "GET",
         contentType: 'application/json; charset=utf-8',

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpaceLock.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -39,6 +40,8 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Models.Espaco
 
         [Required(ErrorMessage = "Informe o CEP.")]
         public string Cep { get; set; }
+
+        //public List<TipoEvento> Eventos { get; set; }
 
         [Required(ErrorMessage = "Informe o id do usuário.")]
         public int IdUsuario { get; set; }

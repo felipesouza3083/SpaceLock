@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
 {
+    [Authorize]
     public class TipoEventoController : Controller
     {
         private ITipoEventoRepository repository;

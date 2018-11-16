@@ -1,0 +1,14 @@
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\SpaceLock.Repositorio.dll.config
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\SpaceLock.Repositorio.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\SpaceLock.Repositorio.pdb
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\EntityFramework.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\SpaceLock.Entidades.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\SpaceLock.Entidades.pdb
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\EntityFramework.xml
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Release\SpaceLock.Repositorio.csprojAssemblyReference.cache
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Release\SpaceLock.Repositorio.csproj.CoreCompileInputs.cache
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Release\SpaceLock.Repositorio.csproj.CopyComplete
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Release\SpaceLock.Repositorio.dll
+C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Repositorio\obj\Release\SpaceLock.Repositorio.pdb

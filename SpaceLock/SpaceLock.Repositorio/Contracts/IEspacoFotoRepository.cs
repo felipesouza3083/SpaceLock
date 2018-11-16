@@ -9,5 +9,6 @@ namespace SpaceLock.Repositorio.Contracts
 {
     public interface IEspacoFotoRepository:IBaseRepository<EspacoFoto>
     {
+        List<EspacoFoto> ListarFotosPorEspaco(int idEspaco);
     }
 }
