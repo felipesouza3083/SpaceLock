@@ -61,7 +61,8 @@
 function CadastrarEspaco() {
     $("#mensagem").html("Processando, por favor aguarde.");
 
-    //var teste = $("#sltTipo").val();
+    var teste = $("#sltTipo").val();
+    debugger;
 
     var model = {
         NomeEspaco: $("#txtNome").val(),
@@ -75,6 +76,7 @@ function CadastrarEspaco() {
         Cidade: $("#txtCidade").val(),
         Uf: $("#txtUf").val(),
         Cep: $("#txtCep").val(),
+        IdEventos: $("#sltTipo").val(),
         IdUsuario: 1
     };
 

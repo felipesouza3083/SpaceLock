@@ -1,5 +1,6 @@
 ﻿using SpaceLock.Entidades;
 using SpaceLock.Repositorio.Contracts;
+using SpaceLock.Repositorio.Repositories;
 using SpaceLock.WEB.Areas.AreaRestrita.Models.Espaco;
 using SpaceLock.WEB.Util;
 using System;
@@ -43,6 +44,15 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             {
                 try
                 {
+                    TipoEventoRepository rep = new TipoEventoRepository();
+
+                    List<TipoEvento> lista = new List<TipoEvento>();
+                    foreach(int i in model.IdEventos)
+                    {
+                        TipoEvento t = rep.FindById(i);
+
+                        lista.Add(t);
+                    }
                     Espaco e = new Espaco();
 
                     e.NomeEspaco = model.NomeEspaco;
@@ -56,6 +66,7 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
                     e.Cidade = model.Cidade;
                     e.Uf = model.Uf;
                     e.Cep = model.Cep;
+                    e.TipoEventos = lista;
                     e.DataCadastro = DateTime.Now;
                     e.IdUsuario = model.IdUsuario;
 

@@ -9,5 +9,7 @@ namespace SpaceLock.Repositorio.Contracts
 {
     public interface IAluguelRepository:IBaseRepository<Aluguel>
     {
+        List<Aluguel> ListaAlugueisPorUsuario(int idUsuario);
+        List<Aluguel> ListaAlugueisPorEspaco(int idEspaco);
     }
 }

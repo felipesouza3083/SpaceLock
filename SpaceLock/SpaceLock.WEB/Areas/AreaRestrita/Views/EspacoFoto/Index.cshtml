@@ -25,7 +25,7 @@
                             var conteudo = "";
                             conteudo += "<option value='0'>::SELECIONE::</option>"
                             for (var i = 0; i < obj.length; i++) {
-                                conteudo+= "<option value='"+obj[i].IdEspaco+"'>"+obj[i].NomeEspaco+"</option>";
+                                conteudo += "<option value='" + obj[i].IdEspaco + "'>" + obj[i].NomeEspaco + "</option>";
                             }
                             $("#sltEspaco").html(conteudo);
                         }
@@ -66,7 +66,7 @@
 
                 //Chamando a requisição ajax para salvar a imagem...
                 $.ajax({
-                    url: "/EspacoFoto/UploadFoto?idEspaco="+idEspaco+"",
+                    url: "/EspacoFoto/UploadFoto?idEspaco=" + idEspaco + "",
                     type: "POST",
                     data: data,
                     contentType: false,
@@ -115,7 +115,7 @@
                             var conteudo = "";
                             for (var i = 0; i < obj.length; i++) {
                                 conteudo += "<tr>";
-                                conteudo += "<td><img src='~/Imagens/Espaco/"+id+"/"+obj[i].Foto+"' width='60' height='60'></td>";
+                                conteudo += "<td><img src='/Imagens/Espaco/" + id + "/" + obj[i].Foto + "' width='60' height='60'></td>";
                                 conteudo += "<td><input type='button' class='btn btn-danger btn-sm' value='Excluir Foto'/></td>";
                                 conteudo += "</tr>";
                             }
@@ -132,6 +132,10 @@
                 });
             };
 
+            function ExcluirFoto(id) {
+                alert(id)
+            };
+
             //executando a função de consulta..
             consultar();
 
@@ -140,7 +144,7 @@
             });
 
             $('#sltEspaco').change(function () {
-
+                ListarFotos($(this).val());
             });
 
         });
