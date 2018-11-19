@@ -44,15 +44,6 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             {
                 try
                 {
-                    TipoEventoRepository rep = new TipoEventoRepository();
-
-                    List<TipoEvento> lista = new List<TipoEvento>();
-                    foreach(int i in model.IdEventos)
-                    {
-                        TipoEvento t = rep.FindById(i);
-
-                        lista.Add(t);
-                    }
                     Espaco e = new Espaco();
 
                     e.NomeEspaco = model.NomeEspaco;
@@ -66,11 +57,24 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
                     e.Cidade = model.Cidade;
                     e.Uf = model.Uf;
                     e.Cep = model.Cep;
-                    e.TipoEventos = lista;
+                    
                     e.DataCadastro = DateTime.Now;
                     e.IdUsuario = model.IdUsuario;
 
-                    repository.Insert(e);
+                    int idEspaco = repository.InsertRetornandoChavePrimaria(e);
+
+                    EspacoTipoEventoRepository rep = new EspacoTipoEventoRepository();
+
+                    foreach (int i in model.IdEventos)
+                    {
+                        EspacoTipoEvento et = new EspacoTipoEvento();
+
+                        et.IdEspaco = idEspaco;
+                        et.IdTipoEvento = i;
+                        et.DataCriacao = DateTime.Now;
+
+                        rep.Insert(et);
+                    }
 
                     return Json("Espaço cadastrado com sucesso!");
                 }
@@ -179,6 +183,42 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             catch(Exception e)
             {
                 return Json($"Ocorreu um erro interno: {e.Message}", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult ListaEspacoPorEvento(int idTipoEvento)
+        {
+            try
+            {
+                List<EspacoConsultaViewModel> lista = new List<EspacoConsultaViewModel>();
+
+                foreach (var e in repository.ListarPorTipoEvento(idTipoEvento))
+                {
+                    EspacoConsultaViewModel model = new EspacoConsultaViewModel();
+
+                    model.IdEspaco = e.IdEspaco;
+                    model.NomeEspaco = e.NomeEspaco;
+                    model.Tamanho = e.Tamanho;
+                    model.Capacidade = e.Capacidade;
+                    model.UnidadeMedida = e.UnidadeMedida;
+                    model.Endereco = e.Endereco;
+                    model.Numero = e.Numero;
+                    model.Complemento = e.Complemento;
+                    model.Bairro = e.Bairro;
+                    model.Cidade = e.Cidade;
+                    model.Uf = e.Uf;
+                    model.Cep = e.Cep;
+                    model.IdUsuario = e.IdUsuario;
+
+                    lista.Add(model);
+                }
+
+                return Json(lista, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception e)
+            {
+                return Json($"Ocorreu um erro:{e.Message}", JsonRequestBehavior.AllowGet);
             }
         }
     }

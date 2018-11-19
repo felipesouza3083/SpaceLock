@@ -23,10 +23,10 @@ namespace SpaceLock.Entidades
         public DateTime DataCadastro { get; set; }
         public int IdUsuario { get; set; }
 
-        public List<TipoEvento> TipoEventos { get; set; }
         public List<Manutencao> Manutencoes { get; set; }
         public List<Aluguel> Alugueis { get; set; }
         public List<EspacoFoto> EspacoFotos { get; set; }
+        public List<EspacoTipoEvento> EspacoTipoEventos { get; set; }
         public Usuario Usuario { get; set; }
 
         public Espaco()

@@ -31,6 +31,7 @@ namespace SpaceLock.Repositorio.Context
             modelBuilder.Configurations.Add(new EspacoFotoMap());
             modelBuilder.Configurations.Add(new ManutencaoMap());
             modelBuilder.Configurations.Add(new AluguelMap());
+            modelBuilder.Configurations.Add(new EspacoTipoEventoMap());
         }
 
         public DbSet<Perfil> Perfil { get; set; }
@@ -40,5 +41,6 @@ namespace SpaceLock.Repositorio.Context
         public DbSet<Aluguel> Aluguel { get; set; }
         public DbSet<Manutencao> Manutencao { get; set; }
         public DbSet<EspacoFoto> EspacoFoto { get; set; }
+        public DbSet<EspacoTipoEvento> EspacoTipoEvento { get; set; }
     }
 }

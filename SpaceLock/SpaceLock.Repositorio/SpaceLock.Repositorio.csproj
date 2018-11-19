@@ -54,6 +54,7 @@
     <Compile Include="Contracts\IBaseRepository.cs" />
     <Compile Include="Contracts\IEspacoFotoRepository.cs" />
     <Compile Include="Contracts\IEspacoRepository.cs" />
+    <Compile Include="Contracts\IEspacoTipoEventoRepository.cs" />
     <Compile Include="Contracts\IManutencaoRepository.cs" />
     <Compile Include="Contracts\IPerfilRepository.cs" />
     <Compile Include="Contracts\ITipoEventoRepository.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Mapping\AluguelMap.cs" />
     <Compile Include="Mapping\EspacoFotoMap.cs" />
     <Compile Include="Mapping\EspacoMap.cs" />
+    <Compile Include="Mapping\EspacoTipoEventoMap.cs" />
     <Compile Include="Mapping\ManutencaoMap.cs" />
     <Compile Include="Mapping\PerfilMap.cs" />
     <Compile Include="Mapping\TipoEventoMap.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\EspacoFotoRepository.cs" />
     <Compile Include="Repositories\EspacoRepository.cs" />
+    <Compile Include="Repositories\EspacoTipoEventoRepository.cs" />
     <Compile Include="Repositories\ManutencaoRepository.cs" />
     <Compile Include="Repositories\PerfilRepository.cs" />
     <Compile Include="Repositories\TipoEventoRepository.cs" />

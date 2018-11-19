@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "MeusAlugueis";
+    Layout = "~/Areas/AreaRestrita/Views/Shared/Layout.cshtml";
+}
+
+@section scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        function parseJsonDate(jsonDate) {
+
+            var fullDate = new Date(parseInt(jsonDate.substr(6)));
+            var twoDigitMonth = (fullDate.getMonth() + 1) + ""; if (twoDigitMonth.length == 1) twoDigitMonth = "0" + twoDigitMonth;
+
+            var twoDigitDate = fullDate.getDate() + ""; if (twoDigitDate.length == 1) twoDigitDate = "0" + twoDigitDate;
+            var currentDate = twoDigitDate + "/" + twoDigitMonth  + "/" + fullDate.getFullYear();
+
+            return currentDate;
+        };
+
+        function consultar() {
+            debugger;
+            //função AJAX..
+            $.ajax({
+                url: '/Aluguel/ConsultarAlgueisDoUsuario?idUsuario=' + sessionStorage.getItem("IDUSUARIOLOGADO") + '',
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (obj) {
+                    //verificar se o controller retornou uma lista..
+                    if (obj instanceof Array) {
+                        //imprimir os dados da tabela..
+                        $("#quantidade").html(obj.length);
+
+                        var conteudo = "";
+                        
+                        for (var i = 0; i < obj.length; i++) {
+                            conteudo += "<tr>";
+                            conteudo += "<td>" + obj[i].IdAluguel + "</td>";
+                            conteudo += "<td>" + parseJsonDate(obj[i].DataAluguel) + "</td>";
+                            conteudo += "<td>" + obj[i].HoraInicio + "</td>";
+                            conteudo += "<td>" + obj[i].HoraFim + "</td>";
+                            conteudo += "<td>" + obj[i].Descricao + "</td>";
+                            conteudo += "<td>" + obj[i].NomeEspaco + "</td>";
+                            conteudo += "<td><input type='button' class='btn btn-default btn-sm' value='Atualizar Aluguel'/>";
+                            conteudo += "&nbsp;&nbsp;<input type='button' class='btn btn-danger btn-sm' value='Excluir Aluguel'/></td>";
+                            conteudo += "</tr>";
+                        }
+
+                        $("#tabela tbody").html(conteudo);
+                    }
+                    else {
+                        //imprimir mensagem..
+                        $("#mensagem").html(obj);
+                    }
+                },
+                error: function (e) {
+                    $("#mensagem").html("Erro: " + e.status);
+                }
+            });
+        };
+
+
+        consultar();
+    });
+    </script>
+    }
+
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="content-main">
+
+            <!--banner-->
+            <div class="banner">
+                <h2>
+                    <a href="/AreaRestrita/Home">Home</a>
+                    <i class="fa fa-angle-right"></i>
+                    <span>Meus Alugueis</span>
+                </h2>
+            </div>
+            <!--//banner-->
+            <!--grid-->
+            <div class="grid-form">
+                <!---->
+                <div class="grid-form1">
+                    <h3>Meus Alugueis</h3>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <div id="mensagem"></div>
+                            <table id="tabela" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Data</th>
+                                        <th>Hora Inicio</th>
+                                        <th>Hora Final</th>
+                                        <th>Nome do Evento</th>
+                                        <th>Nome do Espaço</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="7">
+                                            Quantidade de Alugueis: <span style="color:black" id="quantidade"></span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//grid-->
+            <!---->
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+

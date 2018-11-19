@@ -12,5 +12,7 @@ namespace SpaceLock.Repositorio.Contracts
         List<Espaco> ListarPorUsuario(int idUsuario);
 
         List<Espaco> ListarPorTipoEvento(int idTipoEvento);
+
+        int InsertRetornandoChavePrimaria(Espaco obj);
     }
 }

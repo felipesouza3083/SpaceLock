@@ -110,16 +110,26 @@
                         //verificar se o controller retornou uma lista..
                         if (obj instanceof Array) {
                             //exibir a quantidade de elementos da lista..
-                            $("#quantidade").html(obj.length);
                             //imprimir os dados da tabela..
                             var conteudo = "";
                             for (var i = 0; i < obj.length; i++) {
-                                conteudo += "<tr>";
+                                /*conteudo += "<tr>";
                                 conteudo += "<td><img src='/Imagens/Espaco/" + id + "/" + obj[i].Foto + "' width='60' height='60'></td>";
                                 conteudo += "<td><input type='button' class='btn btn-danger btn-sm' value='Excluir Foto'/></td>";
-                                conteudo += "</tr>";
+                                conteudo += "</tr>";*/
+                                conteudo += "<div class='col-md'>";
+                                conteudo += "<div class='gallery-img'>";
+                                conteudo += "<a href='/Imagens/Espaco/" + id + "/" + obj[i].Foto + "' class='b-link-stripe b-animate-go swipebox' title='Image Title'>";
+                                conteudo += "<img class='img-responsive' src='/Imagens/Espaco/" + id + "/" + obj[i].Foto + "' alt=''/>";
+                                conteudo += "<span class='zoom-icon'></span>";
+                                conteudo += "</a>";
+                                conteudo += "</div>";
+                                conteudo += "<div class='text-gallery'>";
+                                conteudo += "<h6>Imagem " + i + 1 + "</h6>";
+                                conteudo += "</div>";
+                                conteudo += "</div>";
                             }
-                            $("#tabela tbody").html(conteudo);
+                            $("#galeria").html(conteudo);
                         }
                         else {
                             //imprimir mensagem..
@@ -197,28 +207,32 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="horizontal-form">
-                            <div id="mensagem"></div>
-                            <table id="tabela" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Descrição</th>
-                                    </tr>
-                                </thead>
+                    @*<div class="tab-content">
+                            <div class="tab-pane active" id="horizontal-form">
+                                <div id="mensagem"></div>
+                                <table id="tabela" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Descrição</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody></tbody>
+                                    <tbody></tbody>
 
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="2">
-                                            Quantidade de Eventos: <span style="color:black" id="quantidade"></span>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2">
+                                                Quantidade de Eventos: <span style="color:black" id="quantidade"></span>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>*@
+                    <div class="gallery" id="galeria">
+                        <div id="quantidade"></div>
+                        <div class="clearfix"> </div>
                     </div>
                 </div>
             </div>

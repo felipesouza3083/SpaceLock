@@ -11,7 +11,7 @@ namespace SpaceLock.Entidades
         public int IdTipoEvento { get; set; }
         public string Descricao { get; set; }
 
-        public List<Espaco> Espacos { get; set; }
+        public List<EspacoTipoEvento> EspacoTipoEventos { get; set; }
 
         public TipoEvento()
         {

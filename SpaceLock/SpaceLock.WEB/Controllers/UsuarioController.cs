@@ -51,7 +51,7 @@ namespace SpaceLock.WEB.Controllers
                         string authJSON = JsonConvert.SerializeObject(auth);
 
                         //criar o ticket de acesso..
-                        FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(authJSON, false, 5);
+                        FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(authJSON, false, 60);
 
                         //gravar o ticket em cookie..
                         HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
@@ -130,6 +130,13 @@ namespace SpaceLock.WEB.Controllers
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Login", "Usuario", new { area = "" });
+        }
+
+        // GET: Usuario
+        [Authorize]
+        public ActionResult MeusDados()
+        {
+            return View();
         }
     }
 }

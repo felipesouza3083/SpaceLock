@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Solicitar";
+    Layout = "~/Areas/AreaRestrita/Views/Shared/Layout.cshtml";
+}
+
+@section scripts{
+    <script src="~/js/jquery.mask.min.js"></script>
+
+    <script src="~/Page_Js/solicitar_aluguel.js"></script>
+}
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+
+        <!--banner-->
+        <div class="banner">
+            <h2>
+                <a href="/AreaRestrita/Home">Home</a>
+                <i class="fa fa-angle-right"></i>
+                <span>Solicitar Aluguel</span>
+            </h2>
+        </div>
+        <!--//banner-->
+        <!--grid-->
+        <div class="grid-form">
+            <!---->
+            <div class="grid-form1">
+                <h3>Novo Aluguel</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="selector1" class="col-sm-2 control-label">Evento</label>
+                                <div class="col-sm-8">
+                                    <select name="selector1" id="sltTipoEvento" class="form-control1"></select>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        @*<button id="btncadastro" class="btn btn-success">
+                                                Cadastrar
+                                            </button>*@
+                                    </div>
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <div id="mensagem"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="horizontal-form">
+                            <div id="mensagem"></div>
+                            <table id="tabela" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Nome</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            Quantidade de Espaços Encontrados: <span style="color:black" id="quantidade"></span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="modal"></div>
+            </div>
+        </div>
+    </div>
+    <!--//grid-->
+    <!---->
+</div>
+

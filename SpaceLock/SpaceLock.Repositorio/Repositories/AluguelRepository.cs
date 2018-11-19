@@ -3,6 +3,7 @@ using SpaceLock.Repositorio.Context;
 using SpaceLock.Repositorio.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace SpaceLock.Repositorio.Repositories
             using(DataContext d = new DataContext())
             {
                 return d.Aluguel
+                        .Include(a => a.Usuario)
                         .Where(a => a.IdEspaco == idEspaco)
                         .ToList();
             }
@@ -26,6 +28,7 @@ namespace SpaceLock.Repositorio.Repositories
             using (DataContext d = new DataContext())
             {
                 return d.Aluguel
+                        .Include(a => a.Espaco)
                         .Where(a => a.IdUsuario == idUsuario)
                         .ToList();
             }

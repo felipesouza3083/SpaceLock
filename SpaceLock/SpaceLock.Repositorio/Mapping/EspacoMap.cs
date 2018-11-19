@@ -81,19 +81,6 @@ namespace SpaceLock.Repositorio.Mapping
                 .IsRequired();
 
             HasRequired(e => e.Usuario).WithMany(u => u.Espacos).HasForeignKey(e => e.IdUsuario).WillCascadeOnDelete(false);
-
-            HasMany(e => e.TipoEventos)
-                .WithMany(ti => ti.Espacos)
-                .Map(
-                    map =>
-                    {
-                        map.ToTable("EspacoTipoEvento");
-
-                        map.MapLeftKey("IdEspaco");
-
-                        map.MapRightKey("IdTipoEvento");
-                    }
-                );
         }
     }
 }

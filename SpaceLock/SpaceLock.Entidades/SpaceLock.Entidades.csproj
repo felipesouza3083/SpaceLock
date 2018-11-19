@@ -44,6 +44,7 @@
     <Compile Include="Espaco.cs" />
     <Compile Include="EspacoFoto.cs" />
     <Compile Include="Aluguel.cs" />
+    <Compile Include="EspacoTipoEvento.cs" />
     <Compile Include="Manutencao.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="TipoEvento.cs" />

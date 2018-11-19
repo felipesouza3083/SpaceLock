@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "MeusDados";
+    Layout = "~/Areas/AreaRestrita/Views/Shared/Layout.cshtml";
+}
+
+@section scripts{
+
+    }
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main">
+
+        <!--banner-->
+        <div class="banner">
+            <h2>
+                <a href="/AreaRestrita/Home">Home</a>
+                <i class="fa fa-angle-right"></i>
+                <span>Meus Dados</span>
+            </h2>
+        </div>
+        <!--//banner-->
+        <!--grid-->
+        <div class="grid-form">
+            <!---->
+            <div class="grid-form1">
+                <h3>Meus Dados</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="selector1" class="col-sm-2 control-label">Nome</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control1" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <center>
+                                    <label for="exampleInputFile">Escolha a Nova Foto</label>
+                                    <input type="file" id="foto" accept="image/*">
+                                </center>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <button id="btnatualizar" class="btn btn-success">
+                                            Atualizar
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <div id="mensagem"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    @*<div class="tab-content">
+                            <div class="tab-pane active" id="horizontal-form">
+                                <div id="mensagem"></div>
+                                <table id="tabela" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Descrição</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody></tbody>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2">
+                                                Quantidade de Eventos: <span style="color:black" id="quantidade"></span>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>*@
+                    <div class="gallery" id="galeria">
+                        <div id="quantidade"></div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//grid-->
+    <!---->
+</div>
