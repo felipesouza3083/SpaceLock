@@ -171,6 +171,8 @@
     <Content Include="js\jquery.flot.pie.js" />
     <Content Include="js\jquery.flot.selection.js" />
     <Content Include="js\jquery.flot.stack.js" />
+    <Content Include="js\jquery.mask.js" />
+    <Content Include="js\jquery.mask.min.js" />
     <Content Include="js\jquery.metisMenu.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.nicescroll.js" />
