@@ -13,7 +13,13 @@ namespace SpaceLock.Repositorio.Repositories
     {
         public void AtualizaSenha(int idUsuario, string novaSenha)
         {
-            throw new NotImplementedException();
+            var user = new Usuario() { IdUsuario = idUsuario, Senha = novaSenha };
+            using (DataContext d = new DataContext())
+            {
+                d.Usuario.Attach(user);
+                d.Entry(user).Property(u => u.Senha).IsModified = true;
+                d.SaveChanges();
+            }
         }
 
         public Usuario Find(string login, string senha)

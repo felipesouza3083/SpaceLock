@@ -11,5 +11,7 @@ namespace SpaceLock.Repositorio.Contracts
     {
         List<Aluguel> ListaAlugueisPorUsuario(int idUsuario);
         List<Aluguel> ListaAlugueisPorEspaco(int idEspaco);
+        void AtualizaValorAluguel(int idAluguel, double valor);
+        void CancelaAluguel(int idAluguel);
     }
 }

@@ -12,6 +12,7 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Models.Aluguel
         public string HoraInicio { get; set; }
         public string HoraFim { get; set; }
         public string Descricao { get; set; }
+        public int IdEspaco { get; set; }
         public string NomeEspaco { get; set; }
     }
 }

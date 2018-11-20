@@ -26,7 +26,7 @@ namespace SpaceLock.WEB.Models.Usuario
         [DataType(DataType.Password)]
         public string ConfirmSenha { get; set; }
 
-        [Required(ErrorMessage = "Envie a foto.")]
+        //[Required(ErrorMessage = "Envie a foto.")]
         public HttpPostedFileBase Foto { get; set; }
     }
 }

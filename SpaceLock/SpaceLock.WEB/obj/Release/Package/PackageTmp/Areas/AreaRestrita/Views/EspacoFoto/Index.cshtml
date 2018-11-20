@@ -25,7 +25,7 @@
                             var conteudo = "";
                             conteudo += "<option value='0'>::SELECIONE::</option>"
                             for (var i = 0; i < obj.length; i++) {
-                                conteudo+= "<option value='"+obj[i].IdEspaco+"'>"+obj[i].NomeEspaco+"</option>";
+                                conteudo += "<option value='" + obj[i].IdEspaco + "'>" + obj[i].NomeEspaco + "</option>";
                             }
                             $("#sltEspaco").html(conteudo);
                         }
@@ -41,7 +41,6 @@
             };
 
             function SalvarImagem() {
-                debugger;
                 $("#mensagem").html("Processando seu cadastro.");
                 debugger;
                 var fileUpload = $("#foto").get(0);
@@ -67,7 +66,7 @@
 
                 //Chamando a requisição ajax para salvar a imagem...
                 $.ajax({
-                    url: "/EspacoFoto/UploadFoto?idEspaco="+idEspaco+"",
+                    url: "/EspacoFoto/UploadFoto?idEspaco=" + idEspaco + "",
                     type: "POST",
                     data: data,
                     contentType: false,
@@ -98,6 +97,55 @@
                 });
             };
 
+            function ListarFotos(id) {
+                $.ajax({
+                    url: '/EspacoFoto/ListaFotoPorEspaco?idEspaco=' + id + '',
+                    dataType: "json",
+                    type: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (obj) {
+                        //verificar se o controller retornou uma lista..
+                        if (obj instanceof Array) {
+                            //exibir a quantidade de elementos da lista..
+                            //imprimir os dados da tabela..
+                            var conteudo = "";
+                            for (var i = 0; i < obj.length; i++) {
+                                /*conteudo += "<tr>";
+                                conteudo += "<td><img src='/Imagens/Espaco/" + id + "/" + obj[i].Foto + "' width='60' height='60'></td>";
+                                conteudo += "<td><input type='button' class='btn btn-danger btn-sm' value='Excluir Foto'/></td>";
+                                conteudo += "</tr>";*/
+                                conteudo += "<div class='col-md'>";
+                                conteudo += "<div class='gallery-img'>";
+                                conteudo += "<a href='/Imagens/Espaco/" + id + "/" + obj[i].Foto + "' class='b-link-stripe b-animate-go swipebox' title='Image Title'>";
+                                conteudo += "<img class='img-responsive' src='/Imagens/Espaco/" + id + "/" + obj[i].Foto + "' alt=''/>";
+                                conteudo += "<span class='zoom-icon'></span>";
+                                conteudo += "</a>";
+                                conteudo += "</div>";
+                                conteudo += "<div class='text-gallery'>";
+                                conteudo += "<h6>Imagem " + i + 1 + "</h6>";
+                                conteudo += "</div>";
+                                conteudo += "</div>";
+                            }
+                            $("#galeria").html(conteudo);
+                        }
+                        else {
+                            //imprimir mensagem..
+                            $("#mensagem").html(obj);
+                        }
+                    },
+                    error: function (e) {
+                        $("#mensagem").html("Erro: " + e.status);
+                    }
+                });
+            };
+
+            function ExcluirFoto(id) {
+                alert(id)
+            };
+
             //executando a função de consulta..
             consultar();
 
@@ -106,7 +154,7 @@
             });
 
             $('#sltEspaco').change(function () {
-                alert($(this).val());
+                ListarFotos($(this).val());
             });
 
         });
@@ -159,28 +207,32 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="horizontal-form">
-                            <div id="mensagem"></div>
-                            <table id="tabela" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Descrição</th>
-                                    </tr>
-                                </thead>
+                    @*<div class="tab-content">
+                            <div class="tab-pane active" id="horizontal-form">
+                                <div id="mensagem"></div>
+                                <table id="tabela" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Descrição</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody></tbody>
+                                    <tbody></tbody>
 
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="2">
-                                            Quantidade de Eventos: <span style="color:black" id="quantidade"></span>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2">
+                                                Quantidade de Eventos: <span style="color:black" id="quantidade"></span>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>*@
+                    <div class="gallery" id="galeria">
+                        <div id="quantidade"></div>
+                        <div class="clearfix"> </div>
                     </div>
                 </div>
             </div>

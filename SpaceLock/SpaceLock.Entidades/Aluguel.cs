@@ -14,6 +14,8 @@ namespace SpaceLock.Entidades
         public TimeSpan HoraFim { get; set; }
         public string Descricao { get; set; }
         public double ValorAluguel { get; set; }
+        public int FlCancelado { get; set; }
+        public int FlVerificado { get; set; }
         public int IdUsuario { get; set; }
         public int IdEspaco { get; set; }
 

@@ -4,3 +4,9 @@ C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Entidades\o
 C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Entidades\obj\Release\SpaceLock.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Entidades\obj\Release\SpaceLock.Entidades.dll
 C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.Entidades\obj\Release\SpaceLock.Entidades.pdb
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Entidades\bin\Release\SpaceLock.Entidades.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Entidades\bin\Release\SpaceLock.Entidades.pdb
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Entidades\obj\Release\SpaceLock.Entidades.csprojAssemblyReference.cache
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Entidades\obj\Release\SpaceLock.Entidades.csproj.CoreCompileInputs.cache
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Entidades\obj\Release\SpaceLock.Entidades.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.Entidades\obj\Release\SpaceLock.Entidades.pdb

@@ -101,15 +101,24 @@ namespace SpaceLock.WEB.Controllers
                         u.Email = model.Email;
                         u.Login = model.Login;
                         u.Senha = Criptografia.EncriptarSenhaMD5(model.Senha);
-                        u.Foto = Guid.NewGuid().ToString() + Path.GetExtension(model.Foto.FileName);
+                        if (model.Foto != null)
+                        {
+                            u.Foto = Guid.NewGuid().ToString() + Path.GetExtension(model.Foto.FileName);
+                        }
+                        else
+                        {
+                            u.Foto = "anonimous.jpg";
+                        }
                         u.IdPerfil = 2;
 
                         repository.Insert(u);
 
-
-                        //upload da foto..
-                        string path = Server.MapPath("/images/users/");
-                        model.Foto.SaveAs(path + u.Foto);
+                        if (model.Foto != null)
+                        {
+                            //upload da foto..
+                            string path = Server.MapPath("/images/users/");
+                            model.Foto.SaveAs(path + u.Foto);
+                        }
 
                         ViewBag.Mensagem = $"Usuário {u.Nome}, cadastrado com sucesso.";
                         ModelState.Clear(); //limpar os campos do formulário..

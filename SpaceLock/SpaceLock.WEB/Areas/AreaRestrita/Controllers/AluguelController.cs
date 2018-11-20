@@ -53,6 +53,8 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
                     a.IdEspaco = model.IdEspaco;
                     a.IdUsuario = model.IdUsuario;
                     a.ValorAluguel = 0;
+                    a.FlCancelado = 0;
+                    a.FlVerificado = 0;
 
                     repository.Insert(a);
 
@@ -79,14 +81,96 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             }
         }
 
+        [HttpPut]
+        public JsonResult AtualizarAluguel(AluguelAtualizaSolicitacaoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Aluguel a = new Aluguel();
+
+                    a.IdAluguel = model.IdAluguel;
+                    a.DataAlguel = model.DataAluguel;
+                    a.HoraInicio = model.HorInicio;
+                    a.HoraFim = model.HoraFim;
+                    a.Descricao = model.DescricaoEvento;
+                    a.IdEspaco = model.IdEspaco;
+                    a.IdUsuario = model.IdUsuario;
+                    a.ValorAluguel = 0;
+                    a.FlCancelado = 0;
+                    a.FlVerificado = 0;
+
+                    repository.Update(a);
+
+                    return Json("Aluguel atualizado com sucesso!");
+                }
+                catch (Exception e)
+                {
+                    return Json($"Ocorreu um erro:{e.Message}");
+                }
+            }
+            else
+            {
+                Hashtable erros = new Hashtable();
+
+                foreach (var m in ModelState)
+                {
+                    if (m.Value.Errors.Count > 0)
+                    {
+                        erros[m.Key] = m.Value.Errors.Select(e => e.ErrorMessage);
+                    }
+                }
+
+                return Json(erros);
+            }
+        }
+
+        [HttpPut]
+        public JsonResult AtualizarValorAluguel(AluguelAtualizaValorViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var a = repository.FindById(model.IdAluguel);
+
+                    a.FlVerificado = 1;
+                    a.ValorAluguel = Convert.ToDouble(model.ValorAluguel);
+
+                    repository.Update(a);
+
+                    return Json("Valor do Aluguel atualizado com sucesso!");
+                }
+                catch (Exception e)
+                {
+                    return Json($"Ocorreu um erro:{e.Message}");
+                }
+            }
+            else
+            {
+                Hashtable erros = new Hashtable();
+
+                foreach (var m in ModelState)
+                {
+                    if (m.Value.Errors.Count > 0)
+                    {
+                        erros[m.Key] = m.Value.Errors.Select(e => e.ErrorMessage);
+                    }
+                }
+
+                return Json(erros);
+            }
+        }
+
         [HttpGet]
-        public JsonResult ConsultarAlgueisDoUsuario(int idUsuario)
+        public JsonResult ListaAluguelPorId(int idAluguel)
         {
             try
             {
-                List<AluguelConsultaUsuarioViewModel> lista = new List<AluguelConsultaUsuarioViewModel>();
 
-                foreach(var a in repository.ListaAlugueisPorUsuario(idUsuario))
+                var a = repository.FindById(idAluguel);
+                if (a != null)
                 {
                     AluguelConsultaUsuarioViewModel model = new AluguelConsultaUsuarioViewModel();
 
@@ -95,6 +179,37 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
                     model.HoraInicio = a.HoraInicio.ToString();
                     model.HoraFim = a.HoraFim.ToString();
                     model.Descricao = a.Descricao;
+
+                    return Json(model, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json("Não encontromos o aluguel em nosso Banco", JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
+            {
+                return Json($"Ocorreu um erro: {e.Message}", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult ConsultarAlgueisDoUsuario(int idUsuario)
+        {
+            try
+            {
+                List<AluguelConsultaUsuarioViewModel> lista = new List<AluguelConsultaUsuarioViewModel>();
+
+                foreach (var a in repository.ListaAlugueisPorUsuario(idUsuario))
+                {
+                    AluguelConsultaUsuarioViewModel model = new AluguelConsultaUsuarioViewModel();
+
+                    model.IdAluguel = a.IdAluguel;
+                    model.DataAluguel = a.DataAlguel;
+                    model.HoraInicio = a.HoraInicio.ToString();
+                    model.HoraFim = a.HoraFim.ToString();
+                    model.Descricao = a.Descricao;
+                    model.IdEspaco = a.Espaco.IdEspaco;
                     model.NomeEspaco = a.Espaco.NomeEspaco;
 
                     lista.Add(model);
@@ -102,7 +217,7 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
 
                 return Json(lista, JsonRequestBehavior.AllowGet);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return Json($"Ocorreu um erro: {e.Message}", JsonRequestBehavior.AllowGet);
             }
@@ -134,6 +249,25 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             catch (Exception e)
             {
                 return Json($"Ocorreu um erro: {e.Message}", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult CancelaAluguel(int idAluguel)
+        {
+            try
+            {
+                var a = repository.FindById(idAluguel);
+
+                a.FlCancelado = 1;
+
+                repository.Update(a);
+
+                return Json("Aluguel Cancelado com sucesso.", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json($"Ocorreu um erro:{e.Message}", JsonRequestBehavior.AllowGet);
             }
         }
     }

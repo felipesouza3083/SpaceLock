@@ -41,6 +41,14 @@ namespace SpaceLock.Repositorio.Mapping
                 .HasColumnName("ValorAluguel")
                 .IsRequired();
 
+            Property(a => a.FlCancelado)
+                .HasColumnName("FlCancelado")
+                .IsRequired();
+
+            Property(a => a.FlVerificado)
+                .HasColumnName("FlVerificado")
+                .IsRequired();
+
             Property(a => a.IdEspaco)
                 .HasColumnName("IdEspaco")
                 .IsRequired();

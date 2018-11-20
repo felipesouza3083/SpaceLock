@@ -12,9 +12,32 @@ namespace SpaceLock.Repositorio.Repositories
 {
     public class AluguelRepository : BaseRepository<Aluguel>, IAluguelRepository
     {
+        public void AtualizaValorAluguel(int idAluguel, double valor)
+        {
+            var a = new Aluguel() { IdAluguel = idAluguel, ValorAluguel = valor, FlVerificado = 1 };
+            using (DataContext d = new DataContext())
+            {
+                d.Aluguel.Attach(a);
+                d.Entry(a).Property(al => al.ValorAluguel).IsModified = true;
+                d.Entry(a).Property(al => al.FlVerificado).IsModified = true;
+                d.SaveChanges();
+            }
+        }
+
+        public void CancelaAluguel(int idAluguel)
+        {
+            var a = new Aluguel() { IdAluguel = idAluguel, FlCancelado = 1 };
+            using (DataContext d = new DataContext())
+            {
+                d.Aluguel.Attach(a);
+                d.Entry(a).Property(al => al.FlCancelado).IsModified = true;
+                d.SaveChanges();
+            }
+        }
+
         public List<Aluguel> ListaAlugueisPorEspaco(int idEspaco)
         {
-            using(DataContext d = new DataContext())
+            using (DataContext d = new DataContext())
             {
                 return d.Aluguel
                         .Include(a => a.Usuario)

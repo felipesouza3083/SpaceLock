@@ -184,8 +184,10 @@
     <Content Include="js\site.js" />
     <Content Include="js\skycons.js" />
     <Content Include="js\underscore-min.js" />
+    <Content Include="Page_Js\aluguel_solicitacoes.js" />
     <Content Include="Page_Js\espaco_cadastro.js" />
     <Content Include="Page_Js\espaco_consulta.js" />
+    <Content Include="Page_Js\meus_alugueis.js" />
     <Content Include="Page_Js\solicitar_aluguel.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -196,7 +198,10 @@
     <Compile Include="Areas\AreaRestrita\Controllers\EspacoController.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\EspacoFotoController.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\HomeController.cs" />
+    <Compile Include="Areas\AreaRestrita\Controllers\ManutencaoController.cs" />
     <Compile Include="Areas\AreaRestrita\Controllers\TipoEventoController.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\Aluguel\AluguelAtualizaSolicitacaoViewModel.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\Aluguel\AluguelAtualizaValorViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Aluguel\AluguelConsultaUsuarioViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Aluguel\AluguelConsultaEspacoViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Aluguel\AluguelSolicitacaoViewModel.cs" />
@@ -205,6 +210,7 @@
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoAtualizacaoViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoCadastroViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Espaco\EspacoConsultaViewModel.cs" />
+    <Compile Include="Areas\AreaRestrita\Models\Manutenção\ManutencaoCadastroViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Tipo Evento\TipoEventoCadastroViewModel.cs" />
     <Compile Include="Areas\AreaRestrita\Models\Tipo Evento\TipoEventoConsultaViewModel.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -236,6 +242,7 @@
     <Content Include="fonts\Muli-Regular.ttf" />
     <Content Include="Areas\AreaRestrita\Views\Aluguel\MeusAlugueis.cshtml" />
     <Content Include="Areas\AreaRestrita\Views\Aluguel\Solicitacoes.cshtml" />
+    <Content Include="js\jquery.maskMoney.js" />
     <None Include="packages.config" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\Cadastro.cshtml" />
@@ -248,7 +255,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\AreaRestrita\Views\Manutencao\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpaceLock.Entidades\SpaceLock.Entidades.csproj">
       <Project>{e21cff05-218e-4330-b657-c5c7a05754b6}</Project>

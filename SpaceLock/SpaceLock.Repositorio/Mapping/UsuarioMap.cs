@@ -48,12 +48,12 @@ namespace SpaceLock.Repositorio.Mapping
 
             Property(u => u.Foto)
                 .HasColumnName("FotoUsuario")
-                .HasMaxLength(50)
-                .HasColumnAnnotation(IndexAnnotation.AnnotationName,
+                .HasMaxLength(50);
+                /*.HasColumnAnnotation(IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute
                     ("ix_Foto")
                     { IsUnique = true }))
-                .IsRequired();
+                .IsRequired();*/
 
             HasRequired(u => u.Perfil).WithMany(p => p.Usuarios).HasForeignKey(u => u.IdPerfil).WillCascadeOnDelete(false);
         }
