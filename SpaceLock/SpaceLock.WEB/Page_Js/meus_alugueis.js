@@ -14,6 +14,27 @@ function parseJsonDate(jsonDate) {
     return currentDate;
 }
 
+function ObjectToTime(obj) {
+
+    var horas = obj.Hours.toString();
+    var minutos = obj.Minutes.toString();
+
+    if (obj != null) {
+        if (horas.length == 1) {
+            horas = "0" + horas.toString();
+        }
+
+        if (minutos.length == 1) {
+            minutos = "0" + minutos.toString();
+        }
+
+        return horas + ":" + minutos;
+    }
+    else {
+        return "00:00";
+    }
+}
+
 function consultar() {
     //função AJAX..
     $.ajax({
