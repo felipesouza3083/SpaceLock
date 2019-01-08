@@ -1,4 +1,5 @@
-﻿using SpaceLock.Entidades;
+﻿using Microsoft.Reporting.WebForms;
+using SpaceLock.Entidades;
 using SpaceLock.Repositorio.Contracts;
 using SpaceLock.WEB.Areas.AreaRestrita.Models.Aluguel;
 using System;
@@ -209,6 +210,8 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
                     model.HoraInicio = a.HoraInicio.ToString();
                     model.HoraFim = a.HoraFim.ToString();
                     model.Descricao = a.Descricao;
+                    model.FlCancelado = a.FlCancelado;
+                    model.FlConfirmado = a.FlVerificado;
                     model.IdEspaco = a.Espaco.IdEspaco;
                     model.NomeEspaco = a.Espaco.NomeEspaco;
 
@@ -269,6 +272,38 @@ namespace SpaceLock.WEB.Areas.AreaRestrita.Controllers
             {
                 return Json($"Ocorreu um erro:{e.Message}", JsonRequestBehavior.AllowGet);
             }
+        }
+
+        public ActionResult GerarRelatorioAluguel(int idAluguel)
+        {
+            try
+            {
+                var a = repository.FindById(idAluguel);
+
+                ReportParameter[] parameters = new ReportParameter[7];
+
+                parameters[0] = new ReportParameter("NOMECLIENTE", a.Usuario.Nome);
+                parameters[1] = new ReportParameter("DATAALUGUEL", a.DataAlguel.ToString("dd/MM/yyyy"));
+                parameters[2] = new ReportParameter("HORAALUGUEL", a.HoraInicio.ToString());
+                parameters[3] = new ReportParameter("HORATERMINO", a.HoraFim.ToString());
+                parameters[4] = new ReportParameter("VALORALUGUEL", a.ValorAluguel.ToString());
+                parameters[5] = new ReportParameter("NOMEESPACO", a.Espaco.NomeEspaco);
+                parameters[6] = new ReportParameter("DATACRIACAO", DateTime.Now.ToString("dd/MM/yyyy"));
+
+                ReportViewer rpt = new ReportViewer();
+
+                rpt.LocalReport.ReportPath = HttpContext.Server.MapPath("/Reports/RelatorioAluguel.rdlc");
+
+                rpt.LocalReport.SetParameters(parameters);
+
+                return File(rpt.LocalReport.Render("PDF"), "application/pdf", "aluguel.pdf");
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = e.Message;
+            }
+
+            return View("MeusAlugueis", MeusAlugueis());
         }
     }
 }

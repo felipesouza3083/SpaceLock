@@ -182,3 +182,7 @@ C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.WEB\obj\Deb
 C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.WEB\obj\Debug\SpaceLock.WEB.csproj.CopyComplete
 C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.WEB\obj\Debug\SpaceLock.WEB.dll
 C:\Users\felipe.souza\Documents\GitHub\SpaceLock\SpaceLock\SpaceLock.WEB\obj\Debug\SpaceLock.WEB.pdb
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\Microsoft.ReportViewer.Common.dll
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Git_Projects\SpaceLock\SpaceLock\SpaceLock.WEB\bin\ReportViewerForMvc.dll

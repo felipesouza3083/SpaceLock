@@ -61,8 +61,18 @@ function consultar() {
                     conteudo += "<td>" + obj[i].HoraFim + "</td>";
                     conteudo += "<td>" + obj[i].Descricao + "</td>";
                     conteudo += "<td>" + obj[i].NomeEspaco + "</td>";
-                    conteudo += "<td><input type='button' onclick='LaunchModal(" + obj[i].IdAluguel + ", " + obj[i].IdEspaco + ")' class='btn btn-success btn-sm' value='Atualizar Dados' data-toggle='modal' data-target='#myModal'/>";
-                    conteudo += "&nbsp;&nbsp;<input type='button' class='btn btn-danger btn-sm' value='Cancelar Aluguel' onclick='CancelarAluguel(" + obj[i].IdAluguel + ")'/></td>";
+                    if (obj[i].FlCancelado === 1) {
+                        conteudo += "<td>Cancelado</td>";
+                    }
+                    else {
+                        if (obj[i].FlConfirmado === 1) {
+                            conteudo += "<td><input type='button' onclick='GeraRelatorio(" + obj[i].IdAluguel + ")' class='btn btn-default btn-sm' value='Gerar Relatório'></td>";
+                        }
+                        else {
+                            conteudo += "<td><input type='button' onclick='LaunchModal(" + obj[i].IdAluguel + ", " + obj[i].IdEspaco + ")' class='btn btn-success btn-sm' value='Atualizar Dados' data-toggle='modal' data-target='#myModal'/>";
+                            conteudo += "&nbsp;&nbsp;<input type='button' class='btn btn-danger btn-sm' value='Cancelar Aluguel' onclick='CancelarAluguel(" + obj[i].IdAluguel + ")'/></td>";
+                        }
+                    }
                     conteudo += "</tr>";
                 }
 
@@ -178,4 +188,22 @@ function AtualizarAluguel(idAluguel, idEspaco) {
         }
     });
 
+}
+
+function GeraRelatorio(id) {
+    $.ajax({
+        url: '/Aluguel/GerarRelatorioAluguel?idAluguel=' + id + '',
+        dataType: "json",
+        type: "GET",
+        contentType: 'application/json; charset=utf-8',
+        async: true,
+        processData: false,
+        cache: false,
+        success: function (obj) {
+            window.location.reload();
+        },
+        error: function (e) {
+            $("#mensagem").html("Erro: " + e.status);
+        }
+    });
 }

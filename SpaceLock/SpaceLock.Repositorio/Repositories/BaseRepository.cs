@@ -12,7 +12,7 @@ namespace SpaceLock.Repositorio.Repositories
     public class BaseRepository<T> : IBaseRepository<T>
         where T : class
     {
-        public void Insert(T obj)
+        public virtual void Insert(T obj)
         {
             using (DataContext d = new DataContext())
             {
@@ -21,7 +21,7 @@ namespace SpaceLock.Repositorio.Repositories
             }
         }
 
-        public void Update(T obj)
+        public virtual void Update(T obj)
         {
             using (DataContext d = new DataContext())
             {
@@ -30,7 +30,7 @@ namespace SpaceLock.Repositorio.Repositories
             }
         }
 
-        public void Delete(T obj)
+        public virtual void Delete(T obj)
         {
             using (DataContext d = new DataContext())
             {
@@ -39,7 +39,7 @@ namespace SpaceLock.Repositorio.Repositories
             }
         }
 
-        public List<T> FindAll()
+        public virtual List<T> FindAll()
         {
             using (DataContext d = new DataContext())
             {
@@ -47,7 +47,7 @@ namespace SpaceLock.Repositorio.Repositories
             }
         }
 
-        public T FindById(int id)
+        public virtual T FindById(int id)
         {
             using (DataContext d = new DataContext())
             {

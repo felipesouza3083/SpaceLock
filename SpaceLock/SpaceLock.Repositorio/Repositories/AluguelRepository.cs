@@ -56,5 +56,16 @@ namespace SpaceLock.Repositorio.Repositories
                         .ToList();
             }
         }
+
+        public override Aluguel FindById(int id)
+        {
+            using (DataContext d = new DataContext())
+            {
+                return d.Set<Aluguel>()
+                        .Include(a => a.Usuario)
+                        .Include(a => a.Espaco)
+                        .FirstOrDefault(a => a.IdAluguel == id);
+            }
+        }
     }
 }
